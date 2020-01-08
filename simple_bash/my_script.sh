@@ -28,3 +28,20 @@ casa --nologger --nogui -c ./src/casa_script.py
 # Output: data/interim/amp.npz
 rm -r data/interim/amp.npz
 python ./src/read_amplitudes.py -msfile data/interim/TEST1_L.ms
+
+# Step 4
+# Use python to produce some plots and latex report
+# Dependencies: python, numpy, matplotlib
+# Input: data/interim/amp.npz
+# Output: plots/amp.png
+rm -r plots
+mkdir plots
+python ./src/plot_amplitudes.py
+
+# Step 5 
+# Produce a report with latex
+# Dependencies: latex
+# Input: plots/amp.png
+# Outputs: resports/amp.pdf
+rm -r reports
+mkdir reports

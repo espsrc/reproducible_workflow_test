@@ -22,7 +22,7 @@ def get_args():
     return args
 
 def save_amplitudes(amp):
-    outfile = './data/interim/amp.npz'
+    outfile = './data/interim/amp.npy'
     print('Saving amplitudes to file: {}'.format(outfile))
     np.save(outfile, amp)
 
