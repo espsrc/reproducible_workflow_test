@@ -33,15 +33,16 @@ python ./src/read_amplitudes.py -msfile data/interim/TEST1_L.ms
 # Use python to produce some plots and latex report
 # Dependencies: python, numpy, matplotlib
 # Input: data/interim/amp.npz
-# Output: plots/amp.png
-rm -r plots
-mkdir plots
+# Output: report/images/amp.png
+mkdir -p report/images
 python ./src/plot_amplitudes.py
 
 # Step 5 
 # Produce a report with latex
 # Dependencies: latex
-# Input: plots/amp.png
-# Outputs: resports/amp.pdf
-rm -r reports
-mkdir reports
+# Input: report/images/amp.png
+# Outputs: report/amp.pdf
+cd report
+pdflatex my_report.tex
+pdflatex my_report.tex
+cd ..
