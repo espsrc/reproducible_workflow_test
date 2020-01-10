@@ -1,0 +1,49 @@
+
+rule all:
+    input:
+        "report/amp.pdf.snakemake"
+
+rule download_data:
+    input:
+    output:
+        "data/raw/TEST1_L.fits"
+    shell:
+        "wget -O {output} http://www.e-merlin.ac.uk/distribute/support/TEST1_L.fits"
+
+rule execute_casa:
+    input:
+        "data/raw/TEST1_L.fits"
+    output:
+        touch("data/interim/TEST1_L.ms.snakemake")
+    shell:
+        "casa --nologger --nogui -c ./src/casa_script.py"
+
+rule read_amplitudes:
+    input:
+        "data/interim/TEST1_L.ms.snakemake"
+    output:
+        touch("data/interim/amp.npz.snakemake")
+    shell:
+        "python ./src/read_amplitudes.py -msfile ./data/interim/TEST1_L.ms"
+
+rule plot_amplitudes:
+    input:
+        "data/interim/amp.npz.snakemake"
+    output:
+        touch("report/images/amp.png.snakemake")
+    shell:
+        "python ./src/plot_amplitudes.py"
+
+rule latex_report:
+    input:
+        "report/images/amp.png.snakemake"
+    output:
+        touch("report/amp.pdf.snakemake")
+    shell:
+        "cd report && "
+        "pdflatex my_report.tex && "
+        "pdflatex my_report.tex"
+
+rule cleanup:
+    shell:
+        "rm -rf casa-20200110-0* data/ report/amp.pdf.snakemake report/images"
