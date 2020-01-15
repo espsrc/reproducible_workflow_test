@@ -5,9 +5,11 @@ Home page is https://snakemake.readthedocs.io
 
 # Setup
 
+```
 source conda-install/etc/profile.d/conda.sh
 conda create -n snakemake -c conda-forge bioconda::snakemake
 conda activate snakemake
+```
 
 ## Specific to this pipeline
 
@@ -19,7 +21,9 @@ conda activate snakemake
 
 You need to write a Snakefile to define your pipeline in your working directory. Then do:
 
+```
 snakemake
+```
 
 and it will run the pipeline for you.
 
