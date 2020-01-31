@@ -1,17 +1,6 @@
 
 workflow myWorkflow {
-  call create_folders
   call download_data
-}
-
-task create_folders {
-  String output_folder
-  command {
-    mkdir -p ${output_folder}
-  }
-  output {
-    File output_dir = "${output_folder}"
-  }
 }
 
 task download_data {

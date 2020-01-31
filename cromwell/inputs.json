@@ -1,4 +1,3 @@
 {
-  "myWorkflow.create_folders.output_folder": "data/raw",
-  "myWorkflow.download_data.wget_output": "data/raw/TEST1_L.fits"
+  "myWorkflow.download_data.wget_output": "TEST1_L.fits"
 }
