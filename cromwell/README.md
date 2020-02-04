@@ -43,6 +43,11 @@ womtool inputs myWorflow.wdl
 
 which will require you to replace the placeholders with the actual inputs.
 
+It is also good practice to define an additional `options.json` file to configure the workflow. See:
+
+* https://cromwell.readthedocs.io/en/stable/wf_options/Overview/
+* https://cromwell.readthedocs.io/en/stable/Configuring/#workflow-log-directory
+
 # Evaluation (1:bad, 5:good)
 
 ## Installation
@@ -57,19 +62,18 @@ Comments: Great! Including examples to get started and diving deep into what's r
 
 ## Management of software dependencies
 
-Score: ?
-Comments: ?
+Score: 5
+Comments: Integration with containers https://cromwell.readthedocs.io/en/stable/tutorials/Containers/
 
 ## Visualize workflows
 
-Score: ?
-Comments: ?
+Score: 3
+Comments: By using 3rd party tools
 
 ## Interoperability (CWL)
 
-Score: ?
-Comments: ?
-
+Score: 5
+Comments: Here it is https://cromwell.readthedocs.io/en/stable/LanguageSupport/
 
 ## HPC support
 
@@ -79,5 +83,24 @@ Comments: The same workflow can be run on your laptop and on a HPC cluster.
 ## Cloud support
 
 Score: 5
-Comments: It does but I don't know the details yet.
+Comments: This tool has been specially designed to work in cloud environments.
+
+## Extra comments: data management
+
+We have not included a specific section to talk about data management inside the workflow.
+We assumed that all workflow management systems would work the same way in that sense.
+However, after testing cromwell we can see that's not the case. Every time you run a workflow
+with cromwell, it creates a new set of subdirectories where outputs and logs are dumped. This
+create a series of problems:
+
+* Say for example you have one step in your pipeline where you use wget to download data. Then,
+every time you run the workflow, the data will be downloaded.
+
+* If you have a 10-step pipeline and crashes in the 9th step, it looks like cromwell will
+rerun everything from the 1st step. This is due to the default behaviour of creating a new set
+of working subfolders for every new run. It was not clear whether you could modify this behaviour.
+
+* You need to adapt your code to work with cromwell in order to pick up the input and output
+location of the data. Again, that might not be a problem for new code but if you want to pipeline
+existing code, that's a major headache that can be avoided with Snakemake and cgat-core.
 

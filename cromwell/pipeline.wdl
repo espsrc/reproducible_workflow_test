@@ -1,6 +1,7 @@
 
 workflow myWorkflow {
   call download_data
+  call execute_casa
 }
 
 task download_data {
@@ -13,4 +14,11 @@ task download_data {
   }
 }
 
-
+task execute_casa {
+  File casaScript
+  String scriptName = basename(casaScript)
+  command {
+    mv ${casaScript} ./${scriptName}
+    casa --nologger --nogui -c ${scriptName}
+  }
+}
