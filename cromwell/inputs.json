@@ -1,0 +1,4 @@
+{
+  "myWorkflow.download_data.wget_output": "TEST1_L.fits",
+  "myWorkflow.execute_casa.casaScript": "/tmp/tmp.zfcTIcU5d3/src/casa_script.py"
+}
