@@ -95,7 +95,7 @@ Comments:
 ## Visualize workflows
 
 Score: 5
-Comments: It comes with built-in functionality to plot the workflow to be executed.
+Comments: It comes with *great* built-in functionality to plot the workflow to be executed.
 
 ## Interoperability
 
