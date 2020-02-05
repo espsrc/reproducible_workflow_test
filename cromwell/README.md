@@ -94,7 +94,7 @@ with cromwell, it creates a new set of subdirectories where outputs and logs are
 create a series of problems:
 
 * Say for example you have one step in your pipeline where you use wget to download data. Then,
-every time you run the workflow, the data will be downloaded.
+every time you run the workflow, the data will be downloaded again.
 
 * If you have a 10-step pipeline and crashes in the 9th step, it looks like cromwell will
 rerun everything from the 1st step. This is due to the default behaviour of creating a new set
