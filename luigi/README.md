@@ -48,8 +48,8 @@ Comments: Great! Including examples to get started and diving deep into what's r
 
 ## Management of software dependencies
 
-Score: ?
-Comments: ?
+Score: 3
+Comments: By default, no easy integration is provided neither with Conda packages nor containers. However, luigi is built to be extended and people contribute their plugins: https://luigi.readthedocs.io/en/stable/api/luigi.contrib.html (e.g. there is a Docker plugin)
 
 ## Visualize workflows
 
@@ -58,17 +58,17 @@ Comments: It comes with built-in functionality to plot the workflow to be execut
 
 ## Interoperability
 
-Score: ?
-Comments: CWL?
-
+Score: 0
+Comments: It doesn't seem to provide integration with CWL.
 
 ## HPC support
 
-Score: ?
-Comments: ?
+Score: 3
+Comments: By default, no easy integration is provided through DRMAA. However, luigi is built to be extended and people contribute their plugins: https://luigi.readthedocs.io/en/stable/api/luigi.contrib.html (e.g. there is a SGE plugin)
+
 
 ## Cloud support
 
-Score: ?
-Comments: ?
+Score: 3
+Comments: By default, no easy integration is provided with Kubernetes. However, luigi is built to be extended and people contribute their plugins: https://luigi.readthedocs.io/en/stable/api/luigi.contrib.html (e.g. there is Kubernetes plugin)
 
